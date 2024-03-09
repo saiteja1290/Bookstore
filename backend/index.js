@@ -4,24 +4,22 @@ import mongoose from "mongoose";
 import booksRoute from "./routes/booksRoute.js";
 import { Book } from "./models/bookmodel.js";
 import cors from "cors";
+import dotenv from "dotenv";
 
+dotenv.config()
 //express
 const app = express();
 // const cors = require('cors');
 app.use(express.json());
 //CORS Policy 
-app.use(cors(
-    {
-        origin: ["https://deploy-mern-1whq.vercel.app"],
-        methods: ['POST', 'GET'],
-        credentials: true
-    }
-))
-// app.use(cors({
-//     origin: 'http://localhost:3000',
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeaders: ['Content-Type'],
-// }))
+// app.use(cors(
+//     // {
+//     //     origin: ["https://deploy-mern-1whq.vercel.app"],
+//     //     methods: ['POST', 'GET'],
+//     //     credentials: true
+//     // }
+// ))
+app.use(cors())
 app.get('/', (req, res) => {
     console.log(req)
     return response.status(200).send("Welcome to MERN stack Project")
