@@ -10,7 +10,13 @@ const app = express();
 // const cors = require('cors');
 app.use(express.json());
 //CORS Policy 
-app.use(cors())
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-1whq.vercel.app"],
+        methods: ['POST', 'GET'],
+        credentials: true
+    }
+))
 // app.use(cors({
 //     origin: 'http://localhost:3000',
 //     methods: ['GET', 'POST', 'PUT', 'DELETE'],
